@@ -121,9 +121,9 @@ def main():
     test_ls.print_Linkedlist()
     for i in range(20):
 
-        choice = random.randint(0,3) #增，删，查，排
+        choice = random.randint(0,4) #增，删，查，排
 
-        if choice == 0: #执行插入操作
+        if choice == 0 or choice == 1: #执行插入操作
             subchoice = random.randint(0,2)
 
             if subchoice == 0: #执行头部插入
@@ -142,7 +142,7 @@ def main():
                     print("Insert",item,"after the node index",position,":",end=" ")
                     test_ls.print_Linkedlist()
                 else:
-                    print("The destination does not exist.")
+                    print("Insert error: The destination does not exist.")
                     print()
             else: #执行尾部插入
                 item = random.randint(0,10)
@@ -150,27 +150,27 @@ def main():
                 test_ls.insert_end(item)
                 test_ls.print_Linkedlist()
 
-        elif choice == 1: #执行删除操作，下标可取0，len
+        elif choice == 2: #执行删除操作，下标可取0，len
             position = random.randint(0,test_ls.ls_len())
             ret = test_ls.delete_node(position)
             if ret == False:
-                print("The destination doesn't exist.")
+                print("Delete error: The destination index",position,"doesn't exist.")
                 print()
             else:
                 print("Deleted node at position",position,"successfully:",end = " ")
                 test_ls.print_Linkedlist()
 
-        elif choice == 2: #执行查找操作
+        elif choice == 3: #执行查找操作
             search_item = random.randint(0,10)
             index_ls = test_ls.search_node(search_item)
-            if not index_ls: #列表不为空时进入
+            if index_ls: #列表不为空时进入
                     print("Item", search_item,"found at position:",end=" ")
                     for i in index_ls:
                         print(i,end=", ")
-                    print()
+                    print("\b\b")
                     print()
             else:
-                print("Item",search_item,"not found")
+                print("Searching failed: Item",search_item,"not found")
                 print()
 
         else: #执行排序操作
