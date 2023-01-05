@@ -52,6 +52,11 @@ class CircularQueue():
     # If the current queue is full or empty, return False and then stop the test.
     def test_continue(self):
         return not((self.rear == -1) or (((self.rear + 1) % self.length) == self.head))
+    def is_empty(self):
+        if self.rear == -1:
+            return True
+        else:
+            return False
 def main():
     c_q = CircularQueue(10)
     c_q.enqueue(0)
@@ -65,4 +70,3 @@ def main():
         else:
             print('Remove an item:',c_q.dequeue())
             c_q.showqueue()
-main()
