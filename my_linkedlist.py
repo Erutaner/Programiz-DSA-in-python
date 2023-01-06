@@ -7,14 +7,17 @@ class Node():
     def __init__(self,data):
         self.next = None
         self.data = data
+
+
 class Linkedlist():
     def __init__(self):
         self.head = None
     def insert_beginning(self,new_data):
         new_node = Node(new_data)
         new_node.next = self.head
-        self.head = new_node #new_node其实可以看作一个结构体指针
-    def insert_end(self,new_data):
+        self.head = new_node  # new_node其实可以看作一个结构体指针
+
+    def insert_end(self, new_data):
         new_node = Node(new_data)
         if self.head == None:
             self.head = new_node
